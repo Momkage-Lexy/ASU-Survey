@@ -15,12 +15,15 @@ namespace KioskApp
         {
             InitializeComponent();
 
-            string dataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string kioskFolder = Path.Combine(dataDir, "KioskApp");
-            Directory.CreateDirectory(kioskFolder);
+string sharedDir = Path.Combine(
+    Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments),
+    "KioskApp");
 
-            dbPath = Path.Combine(kioskFolder, "survey.db");
-            csvPath = Path.Combine(kioskFolder, "survey_export.csv");
+Directory.CreateDirectory(sharedDir);
+
+dbPath = Path.Combine(sharedDir, "survey.db");
+csvPath = Path.Combine(sharedDir, "survey_export.csv");
+
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
