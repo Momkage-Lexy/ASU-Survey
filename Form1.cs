@@ -21,6 +21,9 @@ namespace KioskApp
 
             dbPath = Path.Combine(kioskFolder, "survey.db");
             csvPath = Path.Combine(kioskFolder, "survey_export.csv");
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;
 
             InitializeDatabase();
             InitializeAsync();
@@ -62,7 +65,6 @@ namespace KioskApp
         =================================*/
         private async void InitializeAsync()
         {
-            // This is the FIX — WebView2 must use a writable folder, NOT Program Files
             string userDataFolder = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "KioskApp_WebView2"
