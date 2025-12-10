@@ -936,6 +936,29 @@
     </div>
 
     <script>
+// =========================
+// HOLD logo to EXIT (Staff Only)
+// =========================
+let exitHoldTimer = null;
+const HOLD_TIME = 2500; // ms to trigger exit
+
+const homeLogo = document.getElementById("homeLogo");
+
+homeLogo.addEventListener("pointerdown", () => {
+    exitHoldTimer = setTimeout(() => {
+        if (window.chrome && window.chrome.webview) {
+            window.chrome.webview.postMessage({ command: "exit" });
+        }
+    }, HOLD_TIME);
+});
+
+homeLogo.addEventListener("pointerup", () => {
+    clearTimeout(exitHoldTimer);
+});
+
+homeLogo.addEventListener("pointerleave", () => {
+    clearTimeout(exitHoldTimer);
+});
 
         document.getElementById("homeLogo").addEventListener("click", () => {
         // Close modal if open
