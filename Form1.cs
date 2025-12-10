@@ -102,6 +102,20 @@ namespace KioskApp
         {
             string raw = e.WebMessageAsJson;
 
+            // Try to unwrap if WebView2 escaped it
+            string wrapped = raw;
+            if (raw.StartsWith("\""))
+            {
+                try { wrapped = JsonSerializer.Deserialize<string>(raw); }
+                catch { }
+            }
+            
+            if (wrapped.Contains("\"command\":\"exit\""))
+            {
+                this.Close();
+                return;
+            }
+
             try
             {
                 SurveyResult data = null;

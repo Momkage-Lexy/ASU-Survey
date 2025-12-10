@@ -11,6 +11,7 @@ C:\ASU-Survey\KioskApp\bin\Release\net8.0-windows\win-x64\publish\wwwroot\Assets
 C:\ASU-Survey\KioskApp\bin\Release\net8.0-windows\win-x64\publish\wwwroot\Assets\hatfield-marine-science-center.png
 C:\ASU-Survey\KioskApp\bin\Release\net8.0-windows\win-x64\publish\wwwroot\Assets\ice-core-and-quaternary-geochemistry-lab.png
 C:\ASU-Survey\KioskApp\bin\Release\net8.0-windows\win-x64\publish\wwwroot\Assets\institute-for-water-and-watersheds.png
+C:\ASU-Survey\KioskApp\bin\Release\net8.0-windows\win-x64\publish\wwwroot\Assets\interest-in-oregon-state-university.ico
 C:\ASU-Survey\KioskApp\bin\Release\net8.0-windows\win-x64\publish\wwwroot\Assets\interest-in-oregon-state-university.png
 C:\ASU-Survey\KioskApp\bin\Release\net8.0-windows\win-x64\publish\wwwroot\Assets\interest-in-research-institutes-and-centers.png
 C:\ASU-Survey\KioskApp\bin\Release\net8.0-windows\win-x64\publish\wwwroot\Assets\interest-in-researchers.png

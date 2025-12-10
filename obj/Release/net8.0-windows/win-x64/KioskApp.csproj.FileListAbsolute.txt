@@ -523,3 +523,4 @@ C:\ASU-Survey\KioskApp\obj\Release\net8.0-windows\win-x64\refint\KioskApp.dll
 C:\ASU-Survey\KioskApp\obj\Release\net8.0-windows\win-x64\KioskApp.pdb
 C:\ASU-Survey\KioskApp\obj\Release\net8.0-windows\win-x64\KioskApp.genruntimeconfig.cache
 C:\ASU-Survey\KioskApp\obj\Release\net8.0-windows\win-x64\ref\KioskApp.dll
+C:\ASU-Survey\KioskApp\bin\Release\net8.0-windows\win-x64\wwwroot\Assets\interest-in-oregon-state-university.ico
