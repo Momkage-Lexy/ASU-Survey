@@ -149,13 +149,14 @@ namespace KioskApp
             cmd.Parameters.AddWithValue("$r", r.role ?? "");
             cmd.Parameters.AddWithValue("$x", r.experience ?? "");
             cmd.Parameters.AddWithValue("$b", r.brought ?? "");
-            cmd.Parameters.AddWithValue("$k", r.knownResearch ?? "");
+            cmd.Parameters.AddWithValue("$k", Flatten(r.knownResearch));
+
             cmd.Parameters.AddWithValue("$n", r.name ?? "");
             cmd.Parameters.AddWithValue("$e", r.email ?? "");
 
             cmd.ExecuteNonQuery();
 
-            ExportToCsv();
+            AppendCsvRow(r);
         }
 
         public class SurveyResult
@@ -204,6 +205,37 @@ namespace KioskApp
                 File.Delete(csvPath);
 
             File.Move(tempPath, csvPath);
+        }
+        private void AppendCsvRow(SurveyResult r)
+        {
+            bool fileExists = File.Exists(csvPath);
+
+            using (var sw = new StreamWriter(csvPath, append: true))
+            {
+                // Write header only once
+                if (!fileExists)
+                {
+                    sw.WriteLine("Timestamp,Role,Experience,What brought you to this booth?,Known OSU research centers and institutes,Name,Email");
+                }
+
+                string timestamp = DateTime.Now.ToString("o");
+                string row = string.Join(",",
+                    Escape(timestamp),
+                    Escape(r.role),
+                    Escape(r.experience),
+                    Escape(r.brought),
+                    Escape(Flatten(r.knownResearch)),
+                    Escape(r.name),
+                    Escape(r.email)
+                );
+
+                sw.WriteLine(row);
+            }
+        }
+        private string Flatten(string value)
+        {
+            if (string.IsNullOrEmpty(value)) return "";
+            return value.Replace("[", "").Replace("]", "").Replace("\"", "");
         }
 
         private string Escape(string s)
